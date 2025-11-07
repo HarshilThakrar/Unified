@@ -1,70 +1,207 @@
-# Getting Started with Create React App
+# Unifide - Civil Engineering & Construction Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, production-ready React frontend for a corporate Civil Engineering & Construction company website. Built with Vite, React, JavaScript, and TailwindCSS.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Modern Design**: Clean geometry, subtle motion, and cyan + white professional color scheme
+- **Fully Responsive**: Optimized for all devices (mobile, tablet, desktop)
+- **Smooth Animations**: Powered by Framer Motion with scroll reveals and parallax effects
+- **Component-Based**: Clean, modular architecture for easy maintenance and extension
+- **Developer-Friendly**: Well-commented code ready for backend integration
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Framework**: Vite + React (JavaScript)
+- **Styling**: TailwindCSS with CSS variables
+- **Animations**: Framer Motion
+- **Routing**: React Router DOM
+- **Icons**: SVG-based custom icons
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+   The app will open at `http://localhost:3000`
 
-### `npm run build`
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Preview Production Build**
+   ```bash
+   npm run preview
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/          # Reusable components
+│   ├── UI/            # Base UI components (Button, Container, SectionTitle)
+│   ├── Loader.jsx     # App loader with logo animation
+│   ├── Navbar.jsx     # Navigation bar
+│   ├── Footer.jsx     # Footer component
+│   ├── Hero.jsx       # Hero section
+│   ├── About.jsx      # About section
+│   ├── ServiceCard.jsx
+│   ├── ServicesGrid.jsx
+│   ├── ProjectsTimeline.jsx
+│   ├── TestimonialsCarousel.jsx
+│   └── ContactForm.jsx
+├── pages/             # Page components
+│   ├── Home.jsx
+│   ├── Projects.jsx
+│   ├── Testimonials.jsx
+│   ├── Contact.jsx
+│   └── NotFound.jsx
+├── hooks/             # Custom React hooks
+│   ├── useInView.js
+│   └── useMouseParallax.js
+├── styles/            # Global styles
+│   └── globals.css
+├── App.jsx            # Main app component with routing
+└── main.jsx           # Entry point
 
-### `npm run eject`
+public/
+├── unified-logo.svg   # Company logo
+└── index.html         # HTML template
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎨 Customization
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Replacing the Logo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Replace `public/unified-logo.svg` with your logo SVG
+2. The logo is used in:
+   - Loader component (`src/components/Loader.jsx`)
+   - Navbar (`src/components/Navbar.jsx`)
+   - Footer (`src/components/Footer.jsx`)
+   - Favicon (update `index.html`)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Adjusting Animation Timing
 
-## Learn More
+Animation durations and delays can be adjusted in individual components:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Hero Section**: `src/components/Hero.jsx` - Look for `transition` and `duration` props
+- **About Section**: `src/components/About.jsx` - Counter animation duration
+- **Services Cards**: `src/components/ServicesGrid.jsx` - Stagger delay in `delay` prop
+- **Timeline**: `src/components/ProjectsTimeline.jsx` - Scroll reveal timing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Adding New Projects to Timeline
 
-### Code Splitting
+1. Open `src/components/ProjectsTimeline.jsx`
+2. Add new project objects to the `projects` array:
+   ```javascript
+   {
+     year: '2024',
+     title: 'Project Name',
+     description: 'Project description...',
+     image: 'image-key',
+   }
+   ```
+3. The timeline will automatically render all projects
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Theme Colors
 
-### Analyzing the Bundle Size
+Theme colors are defined in:
+- `tailwind.config.js` - Tailwind color extensions
+- `src/styles/globals.css` - CSS variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Primary colors:
+- Primary: `#00FFFF` (Cyan)
+- Background: `#FFFFFF` (White)
+- Text: `#1B1B1B` (Dark Gray)
+- Accent: `#E5E5E5` (Light Gray)
 
-### Making a Progressive Web App
+## 🔧 Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### TailwindCSS
 
-### Advanced Configuration
+Configuration is in `tailwind.config.js`. Custom colors, fonts, and animations are defined here.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Vite
 
-### Deployment
+Vite configuration is in `vite.config.js`. The dev server runs on port 3000 by default.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### PostCSS
 
-### `npm run build` fails to minify
+PostCSS configuration is in `postcss.config.js` for TailwindCSS processing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📱 Pages & Routes
+
+- `/` - Home page with all sections
+- `/projects` - Full projects timeline
+- `/testimonials` - Client testimonials carousel
+- `/contact` - Contact form and company information
+- `*` - 404 Not Found page
+
+## 🎯 Features Breakdown
+
+### Home Page
+- **Hero Section**: Animated text with parallax building image
+- **About Section**: Team image with animated counters
+- **Services Grid**: 4 interactive service cards with hover effects
+- **Projects Timeline Preview**: Vertical timeline with alternating items
+- **Testimonials Preview**: Auto-sliding carousel
+- **Contact CTA**: Banner leading to contact page
+
+### Projects Page
+- Full timeline with vertical cyan line
+- Expandable project details
+- Smooth scroll reveals
+
+### Testimonials Page
+- Full testimonials carousel
+- Auto-advancing slides
+- Star ratings
+
+### Contact Page
+- Contact form with validation
+- Submit animation and success toast
+- Company address, phone, email
+- Map placeholder for integration
+
+## 🚀 Deployment
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. The `dist/` folder contains the production-ready files
+
+3. Deploy to your preferred hosting service (Vercel, Netlify, AWS, etc.)
+
+## 📝 Notes
+
+- All animations use Framer Motion for smooth performance
+- Scroll reveals use `react-intersection-observer` for viewport detection
+- Parallax effects use custom `useMouseParallax` hook
+- Form submissions are currently mocked (ready for backend integration)
+- Map placeholder on contact page can be replaced with Google Maps, Mapbox, etc.
+
+## 🤝 Backend Integration
+
+The codebase is structured for easy backend integration:
+
+- Form submissions in `ContactForm.jsx` can be connected to your API
+- Project data can be fetched from an API endpoint
+- Testimonials can be dynamically loaded
+- All components are ready for data fetching with React hooks
+
+## 📄 License
+
+This project is private and proprietary.
+
+---
+
+**Built with ❤️ for Unifide Civil Engineering & Construction**
