@@ -89,6 +89,7 @@ const ProjectsSlider = () => {
                     src={projects[currentIndex].image}
                     alt={projects[currentIndex].title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">

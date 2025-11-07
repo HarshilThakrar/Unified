@@ -30,6 +30,7 @@ const VideoSection = () => {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         data-cursor="video"
+        preload="none"
       >
         <source src="/building-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
