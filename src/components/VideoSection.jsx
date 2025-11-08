@@ -29,8 +29,15 @@ const VideoSection = () => {
         className="w-full h-full object-cover"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        onLoadedData={() => {
+          // Video loaded, ensure it's visible
+          if (videoRef.current && !isPlaying) {
+            videoRef.current.currentTime = 0;
+          }
+        }}
         data-cursor="video"
-        preload="none"
+        preload="metadata"
+        playsInline
       >
         <source src="/building-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -58,8 +65,9 @@ const VideoSection = () => {
               className="w-12 h-12 md:w-16 md:h-16 text-primary ml-1"
               fill="currentColor"
               viewBox="0 0 24 24"
+              data-cursor="play-video"
             >
-              <path d="M8 5v14l11-7z" />
+              <path d="M8 5v14l11-7z" data-cursor="play-video" />
             </svg>
           </motion.button>
         </motion.div>

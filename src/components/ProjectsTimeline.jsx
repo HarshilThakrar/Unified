@@ -12,25 +12,25 @@ const ProjectsTimeline = ({ isFullPage = false }) => {
       year: '2023',
       title: 'Highway Expansion Project',
       description: 'Major highway expansion connecting three major cities, spanning 150km with advanced bridge systems.',
-      image: 'highway',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
     },
     {
       year: '2022',
       title: 'Commercial Complex Construction',
       description: 'State-of-the-art commercial complex with sustainable design and LEED certification.',
-      image: 'complex',
+      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop',
     },
     {
       year: '2021',
       title: 'Water Treatment Facility',
       description: 'Modern water treatment facility serving 500,000 residents with advanced filtration systems.',
-      image: 'water',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
     },
     {
       year: '2020',
       title: 'Residential Tower Development',
       description: 'Luxury residential tower with 40 floors, featuring smart home technology and green spaces.',
-      image: 'tower',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
     },
   ];
 
@@ -79,11 +79,24 @@ const ProjectsTimeline = ({ isFullPage = false }) => {
                     initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.8 }}
-                    className={`w-full md:w-5/12 ${
+                    className={`w-full md:w-5/12 relative group ${
                       isEven ? 'md:text-right' : 'md:text-left'
                     }`}
                   >
-                    <div className="bg-accent p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    {/* Hover Image - Appears above text on hover */}
+                    <div className="absolute -top-44 left-0 right-0 z-20 pointer-events-none hidden md:block opacity-0 group-hover:opacity-100 transform translate-y-5 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                      <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      </div>
+                    </div>
+
+                    <div className="bg-accent p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 relative z-10 mt-12 md:mt-16 border-2 border-transparent group-hover:bg-white group-hover:border-[#0095AA]">
                       <h3 className="text-2xl font-heading font-bold text uppercase mb-4">
                         {project.title}
                       </h3>

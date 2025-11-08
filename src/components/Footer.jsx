@@ -38,7 +38,7 @@ const Footer = () => {
           >
             <div className="flex items-center mb-4">
               <img
-                src="/unified-logo.png"
+                src="/unified-logo-footer.png"
                 alt="Unifide Logo"
                 className="h-10"
               />
