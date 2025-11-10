@@ -46,9 +46,8 @@ const Navbar = () => {
     >
       {/* Angled Teal Background */}
       <div 
-        className="absolute top-0 right-0 h-full bg-[#0095AA]"
+        className="absolute top-0 right-0 h-full bg-[#0095AA] w-1/2 md:w-[70%]"
         style={{
-          width: '70%',
           clipPath: 'polygon(0 0, 100% 0, 100% 100%, 5% 100%)',
           zIndex: 0
         }}
@@ -56,18 +55,18 @@ const Navbar = () => {
 
       <div className="relative h-full flex items-center z-10 w-full">
         {/* Logo Section */}
-        <div className="relative z-20 bg-white px-4 md:px-12 h-full flex flex-col justify-center md:ml-16 flex-shrink-0">
+        <div className="relative z-20 bg-white px-2 md:px-12 h-full flex flex-col justify-center md:ml-16 flex-shrink-0">
           <Link to="/" className="flex flex-col items-start">
             <img
               src="/unified-logo.png"
               alt="Unifide Logo"
-              className="h-[50px] md:h-[60px] w-auto ml-2 md:ml-10"
+              className="h-[40px] md:h-[60px] w-auto ml-1 md:ml-10"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20 flex-1 justify-end">
+        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20 flex-1 justify-end ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -85,7 +84,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button - Always visible on mobile */}
         <button
-          className="md:hidden relative z-50 p-2 text-white hover:opacity-80 transition-colors bg-[#0095AA] rounded mr-4"
+          className="md:hidden relative z-50 p-2 text-white hover:opacity-80 transition-colors bg-[#0095AA] rounded mr-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
