@@ -44,7 +44,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="relative h-full flex items-center justify-end z-10 w-full px-4 md:px-8">
+      <div className="relative h-full flex items-center justify-end z-10 w-full max-w-full px-4 md:px-8">
         {/* Logo Section */}
         <div className="absolute left-4 md:left-16 z-20 h-full flex flex-col justify-center">
           <Link to="/" className="flex flex-col items-start">
@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-12 relative z-20">
+        <div className="hidden md:flex items-center gap-8 relative z-20 pr-0">
           {navLinks.map((link) => (
             <Link
               key={link.path}
