@@ -56,12 +56,15 @@ const Navbar = () => {
     >
       {/* Angled Teal Background */}
       <div 
-        className="absolute top-0 right-0 h-full bg-[#0095AA] w-full"
+        className="absolute top-0 right-0 h-full bg-[#0095AA]"
         style={{
+          width: '100%',
+          minWidth: '100%',
           clipPath: isMobile 
             ? 'polygon(50% 0, 100% 0, 100% 100%, 55% 100%)'
             : 'polygon(30% 0, 100% 0, 100% 100%, 35% 100%)',
-          zIndex: 0
+          zIndex: 0,
+          right: 0
         }}
       ></div>
 
@@ -78,7 +81,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 pr-4 relative z-20 flex-1 justify-end ml-8">
+        <div className="hidden md:flex items-center gap-8 pr-0 relative z-20 flex-1 justify-end ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
