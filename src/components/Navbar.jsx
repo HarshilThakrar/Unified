@@ -75,7 +75,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button - Always visible on mobile */}
         <button
-          className="md:hidden relative z-50 p-2 text-text hover:opacity-80 transition-colors bg-accent rounded"
+          className="md:hidden relative z-50 p-2 text-text hover:opacity-80 transition-colors bg-accent rounded mr-8"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
