@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white"
+      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white overflow-hidden"
       style={{ height: '90px' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -54,7 +54,7 @@ const Navbar = () => {
         }}
       ></div>
 
-      <div className="relative h-full flex items-center justify-between z-10">
+      <div className="relative h-full flex items-center z-10 w-full">
         {/* Logo Section */}
         <div className="relative z-20 bg-white px-4 md:px-12 h-full flex flex-col justify-center md:ml-16 flex-shrink-0">
           <Link to="/" className="flex flex-col items-start">
@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20">
+        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20 flex-1 justify-end">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button - Always visible on mobile */}
         <button
-          className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:opacity-80 transition-colors z-50 bg-[#0095AA] rounded"
+          className="md:hidden relative z-50 p-2 text-white hover:opacity-80 transition-colors bg-[#0095AA] rounded mr-4"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
