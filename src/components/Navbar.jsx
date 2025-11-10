@@ -56,7 +56,7 @@ const Navbar = () => {
 
       <div className="relative h-full flex items-center justify-between z-10">
         {/* Logo Section */}
-        <div className="relative z-20 bg-white px-4 md:px-12 h-full flex flex-col justify-center md:ml-16">
+        <div className="relative z-20 bg-white px-4 md:px-12 h-full flex flex-col justify-center md:ml-16 flex-shrink-0">
           <Link to="/" className="flex flex-col items-start">
             <img
               src="/unified-logo.png"
@@ -83,9 +83,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Always visible on mobile */}
         <button
-          className="md:hidden p-2 text-white hover:opacity-80 transition-colors relative z-30 mr-2"
+          className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:opacity-80 transition-colors z-50 bg-[#0095AA] rounded"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
