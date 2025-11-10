@@ -56,12 +56,12 @@ const Navbar = () => {
 
       <div className="relative h-full flex items-center justify-between z-10">
         {/* Logo Section */}
-        <div className="relative z-20 bg-white px-12 h-full flex flex-col justify-center ml-16">
-          <Link to="/" className="flex flex-col">
+        <div className="relative z-20 bg-white px-4 md:px-12 h-full flex flex-col justify-center md:ml-16 w-full md:w-auto">
+          <Link to="/" className="flex flex-col items-center md:items-start">
             <img
               src="/unified-logo.png"
               alt="Unifide Logo"
-              className="h-[60px] w-auto ml-10"
+              className="h-[50px] md:h-[60px] w-auto md:ml-10"
             />
           </Link>
         </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-white hover:opacity-80 transition-colors relative z-20"
+          className="md:hidden p-2 text-white hover:opacity-80 transition-colors relative z-30 mr-4"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -111,11 +111,12 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-[#0095AA] border-t border-[#0095AA]"
+            className="md:hidden bg-[#0095AA] border-t border-white/20 absolute top-full left-0 right-0 z-50"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{ overflow: 'hidden' }}
           >
             <div className="px-4 py-4 space-y-4">
               {navLinks.map((link) => (

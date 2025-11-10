@@ -50,17 +50,17 @@ const Hero = () => {
       {/* White Overlay with reduced opacity */}
       <div className="absolute inset-0 bg-white opacity-60 z-10"></div>
       
-      <Container className="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <Container className="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center px-4 md:px-6">
         {/* Left Side - Text Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-8"
+          className="space-y-6 md:space-y-8 text-center md:text-left"
         >
           <motion.div variants={itemVariants}>
             <motion.span
-              className="text font-heading font-semibold uppercase tracking-wider text-sm"
+              className="text font-heading font-semibold uppercase tracking-wider text-xs md:text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -71,7 +71,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text uppercase leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text uppercase leading-tight"
           >
             Building the
             <br />
@@ -87,7 +87,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-lg text leading-relaxed max-w-lg"
+            className="text-base md:text-lg text leading-relaxed max-w-lg mx-auto md:mx-0"
           >
             We deliver world-class civil engineering and construction solutions
             with precision, innovation, and unwavering commitment to excellence.
@@ -96,7 +96,7 @@ const Hero = () => {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <Button onClick={() => navigate('/projects')}>
               View Projects
