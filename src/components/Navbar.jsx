@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -19,10 +20,19 @@ const Navbar = () => {
       setIsPastHero(window.scrollY > window.innerHeight);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     // Check on mount
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleResize();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navLinks = [
@@ -48,7 +58,9 @@ const Navbar = () => {
       <div 
         className="absolute top-0 right-0 h-full bg-[#0095AA] w-full"
         style={{
-          clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 35% 100%)',
+          clipPath: isMobile 
+            ? 'polygon(50% 0, 100% 0, 100% 100%, 55% 100%)'
+            : 'polygon(30% 0, 100% 0, 100% 100%, 35% 100%)',
           zIndex: 0
         }}
       ></div>
@@ -66,7 +78,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20 flex-1 justify-end ml-8">
+        <div className="hidden md:flex items-center gap-8 pr-4 relative z-20 flex-1 justify-end ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
