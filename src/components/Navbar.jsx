@@ -10,7 +10,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,19 +19,10 @@ const Navbar = () => {
       setIsPastHero(window.scrollY > window.innerHeight);
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
     // Check on mount
     handleScroll();
-    handleResize();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -54,39 +44,28 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Angled Teal Background */}
-      <div 
-        className="absolute top-0 right-0 h-full bg-[#0095AA] w-full"
-        style={{
-          clipPath: isMobile 
-            ? 'polygon(50% 0, 100% 0, 100% 100%, 55% 100%)'
-            : 'polygon(30% 0, 100% 0, 100% 100%, 35% 100%)',
-          zIndex: 0
-        }}
-      ></div>
-
-      <div className="relative h-full flex items-center z-10 w-full">
+      <div className="relative h-full flex items-center justify-end z-10 w-full px-4 md:px-8">
         {/* Logo Section */}
-        <div className="relative z-20 bg-white px-2 md:px-12 h-full flex flex-col justify-center md:ml-16 flex-shrink-0">
+        <div className="absolute left-4 md:left-16 z-20 h-full flex flex-col justify-center">
           <Link to="/" className="flex flex-col items-start">
             <img
               src="/unified-logo.png"
               alt="Unifide Logo"
-              className="h-[40px] md:h-[60px] w-auto ml-1 md:ml-10"
+              className="h-[40px] md:h-[60px] w-auto"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-12 pr-8 relative z-20 flex-1 justify-end ml-8">
+        <div className="hidden md:flex items-center gap-12 relative z-20">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-white no-underline font-semibold text-[16px] transition-all duration-300 whitespace-nowrap ${
+              className={`text-text no-underline font-semibold text-[16px] transition-all duration-300 whitespace-nowrap ${
                 location.pathname === link.path
-                  ? 'underline'
-                  : 'hover:opacity-80 hover:underline'
+                  ? 'underline text-primary'
+                  : 'hover:opacity-80 hover:underline hover:text-primary'
               }`}
             >
               {link.label}
@@ -96,7 +75,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button - Always visible on mobile */}
         <button
-          className="md:hidden relative z-50 p-2 text-white hover:opacity-80 transition-colors bg-[#0095AA] rounded mr-2"
+          className="md:hidden relative z-50 p-2 text-text hover:opacity-80 transition-colors bg-accent rounded"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -122,7 +101,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-[#0095AA] border-t border-white/20 fixed top-[90px] left-0 right-0 z-[60] shadow-lg"
+            className="md:hidden bg-white border-t border-accent fixed top-[90px] left-0 right-0 z-[60] shadow-lg"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -137,8 +116,8 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block font-heading font-semibold uppercase text-sm tracking-wider transition-colors duration-300 ${
                     location.pathname === link.path
-                      ? 'text-white'
-                      : 'text-white hover:opacity-80'
+                      ? 'text-primary'
+                      : 'text-text hover:text-primary'
                   }`}
                 >
                   {link.label}
