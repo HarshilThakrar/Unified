@@ -56,11 +56,12 @@ const Navbar = () => {
     >
       {/* Angled Teal Background */}
       <div 
-        className="absolute top-0 h-full bg-[#0095AA]"
+        className="absolute top-0 right-0 h-full bg-[#0095AA]"
         style={{
-          left: isMobile ? '50%' : '30%',
-          right: '-10px',
-          clipPath: 'none',
+          width: 'calc(100% + 20px)',
+          clipPath: isMobile 
+            ? 'polygon(50% 0, 100% 0, 100% 100%, 55% 100%)'
+            : 'polygon(30% 0, 100% 0, 100% 100%, 35% 100%)',
           zIndex: 0
         }}
       ></div>
