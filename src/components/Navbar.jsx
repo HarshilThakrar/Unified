@@ -75,8 +75,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`text-sm md:text-base font-medium transition-colors duration-200 ${
                     isActive(link.path)
-                      ? 'text-[#0095AA]'
-                      : 'text-gray-700 hover:text-[#0095AA]'
+                      ? 'text-[#90EE90]'
+                      : 'text-gray-700 hover:text-[#90EE90]'
                   }`}
                 >
                   {link.label}
@@ -146,7 +146,7 @@ const Navbar = () => {
           {/* Contact Us Button - Separated from main bar */}
           <Link
             to="/contact"
-            className="hidden lg:flex items-center justify-center bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl px-4 md:px-6 py-3 md:py-4 text-gray-700 font-medium text-sm md:text-base hover:bg-white/90 transition-colors duration-200 flex-shrink-0 shadow-lg h-full"
+            className="hidden lg:flex items-center justify-center bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl px-4 md:px-6 py-3 md:py-4 text-gray-700 font-medium text-sm md:text-base hover:bg-white/90 transition-colors duration-200 flex-shrink-0 shadow-lg"
           >
             Contact Us
           </Link>
@@ -189,8 +189,8 @@ const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block text-sm font-medium transition-colors duration-200 py-2 ${
                       isActive(link.path)
-                        ? 'text-[#0095AA]'
-                        : 'text-gray-700 hover:text-[#0095AA]'
+                        ? 'text-[#90EE90]'
+                        : 'text-gray-700 hover:text-[#90EE90]'
                     }`}
                   >
                     {link.label}
