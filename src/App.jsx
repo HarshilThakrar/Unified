@@ -38,13 +38,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App min-h-screen flex flex-col">
+    <div className="App min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
       <Loader isLoading={isLoading} />
       {!isLoading && (
         <>
           <CustomCursor />
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow w-full max-w-full overflow-x-hidden">
             <Suspense fallback={<Loader isLoading={true} />}>
               <Routes>
                 <Route path="/" element={<Home />} />

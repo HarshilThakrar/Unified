@@ -20,6 +20,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -28,6 +31,8 @@ body {
   background-color: var(--color-background);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -223,7 +228,7 @@ video:hover,
 
 .clients-slider-item {
   flex-shrink: 0;
-  width: calc((100vw - 8rem) / 6);
+  width: calc((100% - 8rem) / 6);
   min-width: 180px;
   max-width: 240px;
   padding: 0 0.5rem;

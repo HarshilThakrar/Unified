@@ -46,27 +46,27 @@ const Navbar = () => {
     <>
       {/* Navbar Container */}
       <motion.nav
-        className="fixed top-4 left-4 right-4 z-40 transition-all duration-300"
+        className="fixed top-4 left-2 right-2 md:left-4 md:right-4 z-40 transition-all duration-300 w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] max-w-full"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3 w-full max-w-full overflow-hidden">
           {/* Logo - Separate from white bar */}
           <Link 
             to="/" 
-            className="flex items-center flex-shrink-0 hover:opacity-80 transition-opacity duration-200 bg-white/80 backdrop-blur-md rounded-xl px-3 md:px-4 py-2 md:py-3 shadow-lg"
+            className="flex items-center flex-shrink-0 hover:opacity-80 transition-opacity duration-200 bg-white/80 backdrop-blur-md rounded-xl px-2 md:px-4 py-2 md:py-3 shadow-lg"
           >
             <img
               src="/unified-logo.png"
               alt="Unifide Logo"
-              className="h-8 md:h-10 w-auto"
+              className="h-8 md:h-10 w-auto max-w-full"
             />
           </Link>
 
           {/* White Rounded Bar - Transparent */}
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg px-4 md:px-6 lg:px-8 py-3 md:py-4 flex-1">
-            <div className="flex items-center justify-between gap-2 md:gap-4">
+          <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg px-2 md:px-6 lg:px-8 py-3 md:py-4 flex-1 min-w-0 overflow-hidden">
+            <div className="flex items-center justify-between gap-1 md:gap-4 w-full max-w-full">
             {/* Navigation Links - Desktop */}
             <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-center">
               {navLinks.map((link) => (
@@ -75,8 +75,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`text-sm md:text-base font-medium transition-colors duration-200 ${
                     isActive(link.path)
-                      ? 'text-[#90EE90]'
-                      : 'text-gray-700 hover:text-[#90EE90]'
+                      ? 'text-[#0095AA]'
+                      : 'text-gray-700 hover:text-[#0095AA]'
                   }`}
                 >
                   {link.label}
@@ -85,7 +85,7 @@ const Navbar = () => {
             </div>
 
             {/* Search Bar */}
-            <div className="hidden md:flex items-center bg-gray-100 rounded-xl px-3 py-2 flex-1 max-w-[200px] lg:max-w-[250px]">
+            <div className="hidden md:flex items-center bg-gray-100 rounded-xl px-3 py-2 flex-1 max-w-[200px] lg:max-w-[250px] min-w-0">
               <svg 
                 className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" 
                 fill="none" 
@@ -156,7 +156,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="lg:hidden bg-white/80 backdrop-blur-md rounded-2xl shadow-xl mt-2 overflow-hidden"
+              className="lg:hidden bg-white/80 backdrop-blur-md rounded-2xl shadow-xl mt-2 overflow-hidden w-full max-w-full"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -189,8 +189,8 @@ const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block text-sm font-medium transition-colors duration-200 py-2 ${
                       isActive(link.path)
-                        ? 'text-[#90EE90]'
-                        : 'text-gray-700 hover:text-[#90EE90]'
+                        ? 'text-[#0095AA]'
+                        : 'text-gray-700 hover:text-[#0095AA]'
                     }`}
                   >
                     {link.label}
